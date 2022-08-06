@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kzk.mapper.UserMapper">
+
+    <select id="login" resultType="com.kzk.bean.User">
+        select * from user where acc = #{acc} and pwd = #{pwd}
+    </select>
+
+    <insert id="register" parameterType="com.kzk.bean.User">
+        insert into user(acc,pwd,img,name,age) values (#{acc},#{pwd},#{img},#{name},#{age})
+    </insert>
+
+    <select id="findList" resultType="com.kzk.bean.User">
+        select * from user
+    </select>
+
+    <delete id="delUser">
+        delete from user where id = #{id}
+    </delete>
+
+    <select id="lookInfo" resultType="com.kzk.bean.User">
+        select * from user where id = #{id}
+    </select>
+
+    <update id="updInfo">
+        update user set age = #{age},pwd=#{pwd},name=#{name} where id = #{id}
+    </update>
+
+    <insert id="addUser" parameterType="com.kzk.bean.User">
+        insert into user(acc,pwd,name,age,roleId) values (#{acc},#{pwd},#{name},#{age},#{roleId})
+    </insert>
+</mapper>

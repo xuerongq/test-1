@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kzk.mapper.RoleMapper">
+    <select id="findList" resultType="com.kzk.bean.Role">
+        select * from role
+    </select>
+
+    <insert id="addRole">
+        insert into role(roleName,instructions) values (#{roleName},#{instructions})
+    </insert>
+
+    <delete id="delRole">
+        delete from role where roleId = #{roleId}
+    </delete>
+
+    <select id="lookInfo" resultType="com.kzk.bean.Role">
+        select * from role where roleId = #{roleId}
+    </select>
+
+    <update id="updRole">
+        update role set roleName = #{roleName},instructions = #{instructions} where roleId = #{roleId}
+    </update>
+</mapper>

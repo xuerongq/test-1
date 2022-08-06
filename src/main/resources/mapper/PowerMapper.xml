@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kzk.mapper.PowerMapper">
+    <select id="showMenu" resultType="com.kzk.bean.Power">
+        select a.* from power a
+        inner join rolepower b on b.powerId = a.powerId
+        inner join role c on c.roleId = b.roleId
+        where c.roleId = #{roleId};
+    </select>
+
+    <select id="selPower" resultType="com.kzk.bean.Power">
+        select a.* from power a
+        INNER JOIN rolepower b on b.powerId = a.powerId
+        where b.roleId = #{roleId};
+    </select>
+    <select id="selNotPower" resultType="com.kzk.bean.Power">
+        select * from power
+    </select>
+</mapper>

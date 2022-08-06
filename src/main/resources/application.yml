@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+  web:
+    resources:
+      static-locations: classpath:/static/, classpath:/templates/
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/yjx211130?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.kzk.bean
